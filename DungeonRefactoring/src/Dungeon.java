@@ -26,7 +26,7 @@
  *    --created Skeleton
  *    --created Gremlin
  *    --added game play features to Dungeon.java (this file)
- *  11/27/2001: Finished documenting program
+ *  11/27/2001: Finished documenting program  
  * version 1.0
  */
 
