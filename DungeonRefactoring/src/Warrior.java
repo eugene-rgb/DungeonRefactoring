@@ -28,11 +28,13 @@ public class Warrior extends Hero {
 
 	}// end crushingBlow method
 
+	@Override
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(name + " swings a mighty sword at " + opponent.getName() + ":");
 		super.attack(opponent);
 	}// end override of attack method
 
+	@Override
 	public void battleChoices(DungeonCharacter opponent) {
 		int choice;
 

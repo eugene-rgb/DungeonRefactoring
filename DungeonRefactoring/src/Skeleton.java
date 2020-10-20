@@ -13,6 +13,7 @@ public class Skeleton extends Monster {
 
 	}// end constructor
 
+	@Override
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(name + " slices his rusty blade at " + opponent.getName() + ":");
 		super.attack(opponent);

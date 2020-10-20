@@ -28,6 +28,7 @@ public class Thief extends Hero {
 
 	}// end surpriseAttack method
 
+	@Override
 	public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
 		int choice;
