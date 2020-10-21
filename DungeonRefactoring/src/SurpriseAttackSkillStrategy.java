@@ -11,7 +11,7 @@ public class SurpriseAttackSkillStrategy implements SkillStrategy {
 			hero.attack(opponent);
 		} // end surprise
 		else if (surprise >= .8) {
-			System.out.println("Uh oh! " + opponent.getName() + " saw you and" + " blocked your attack!");
+			System.out.println("Uh oh! " + opponent.getName() + " saw you and" + " blocked your attack!\n");
 		} else
 			hero.attack(opponent);
 	}

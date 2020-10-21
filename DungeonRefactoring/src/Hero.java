@@ -88,6 +88,16 @@ public abstract class Hero extends DungeonCharacter {
 
 	}// end method
 
+
+	// This method calculates the number of turns the Hero has in an attack
+	public void calculateTurns(final DungeonCharacter opponent) {
+		this.numTurns = this.attackSpeed / opponent.getAttackSpeed();
+		
+		if (this.numTurns == 0)
+			this.numTurns++;
+		
+		System.out.println("Number of turns this round is: " + this.numTurns);
+	}
 	/*-------------------------------------------------------
 	battleChoices will be overridden in derived classes.  It computes the
 	number of turns a hero will get per round based on the opponent that is
@@ -101,13 +111,33 @@ public abstract class Hero extends DungeonCharacter {
 	This method is called by: external sources
 	---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent) {
-		numTurns = attackSpeed / opponent.getAttackSpeed();
+		int choice;
+		calculateTurns(opponent);
 
-		if (numTurns == 0)
-			numTurns++;
+		do {
+			System.out.println("1. Attack Opponent");
+			System.out.println("2. " + this.skillStrategy.getSkillName());
+			System.out.print("Choose an option: ");
+			choice = Keyboard.readInt();
 
-		System.out.println("Number of turns this round is: " + numTurns);
+			switch (choice) {
+			case 1:
+				attack(opponent);
+				numTurns--;
+				break;
+			case 2:
+				this.skillStrategy.useSkill(this, opponent);
+				numTurns--;
+				break;
+			default:
+				System.out.println("invalid choice!");
+			}// end switch
 
-	}// end battleChoices
+			if (numTurns > 0)
+				System.out.println("Number of turns remaining is: " + numTurns);
+
+		} while (numTurns > 0 && opponent.isAlive() && this.isAlive());
+
+	}
 
 }// end Hero class
