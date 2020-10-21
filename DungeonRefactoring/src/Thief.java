@@ -13,21 +13,6 @@ public class Thief extends Hero {
 
 	}// end constructor
 
-	public void surpriseAttack(DungeonCharacter opponent) {
-		double surprise = Math.random();
-		if (surprise <= .4) {
-			System.out.println("Surprise attack was successful!\n" + name + " gets an additional turn.");
-			numTurns++;
-			attack(opponent);
-		} // end surprise
-//TODO is this the wrong percentage? 0.8 maybe?
-		else if (surprise >= .9) {
-			System.out.println("Uh oh! " + opponent.getName() + " saw you and" + " blocked your attack!");
-		} else
-			attack(opponent);
-
-	}// end surpriseAttack method
-
 	@Override
 	public void battleChoices(DungeonCharacter opponent) {
 		super.battleChoices(opponent);
@@ -35,7 +20,7 @@ public class Thief extends Hero {
 
 		do {
 			System.out.println("1. Attack Opponent");
-			System.out.println("2. Surprise Attack");
+			System.out.println("2. " + this.skillStrategy.getSkillName());
 			System.out.print("Choose an option: ");
 			choice = Keyboard.readInt();
 
@@ -44,7 +29,7 @@ public class Thief extends Hero {
 				attack(opponent);
 				break;
 			case 2:
-				surpriseAttack(opponent);
+				this.skillStrategy.useSkill(this, opponent);
 				break;
 			default:
 				System.out.println("invalid choice!");
