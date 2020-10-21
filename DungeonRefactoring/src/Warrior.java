@@ -6,28 +6,13 @@
  * @version 1.0
  */
 
-// Michael is a former warrior 
 public class Warrior extends Hero {
 
-	public Warrior() {
-
-		super("Warrior", 125, 4, .8, 35, 60, .2);
+	public Warrior(final SkillStrategy skillStrat) {
+		super("Warrior", 125, 4, .8, 35, 60, .2, skillStrat);
 
 	}// end constructor
-
-	public void crushingBlow(DungeonCharacter opponent) {
-		if (Math.random() <= .4) {
-			int blowPoints = (int) (Math.random() * 76) + 100;
-// TODO is this between 75 and 175?
-			System.out.println(name + " lands a CRUSHING BLOW for " + blowPoints + " damage!");
-			opponent.subtractHitPoints(blowPoints);
-		} // end blow succeeded
-		else {
-			System.out.println(name + " failed to land a crushing blow");
-			System.out.println();
-		} // blow failed
-
-	}// end crushingBlow method
+	
 
 	@Override
 	public void attack(DungeonCharacter opponent) {
@@ -43,7 +28,7 @@ public class Warrior extends Hero {
 
 		do {
 			System.out.println("1. Attack Opponent");
-			System.out.println("2. Crushing Blow on Opponent");
+			System.out.println("2. " + this.skillStrategy.getSkillName());
 			System.out.print("Choose an option: ");
 			choice = Keyboard.readInt();
 
@@ -52,7 +37,7 @@ public class Warrior extends Hero {
 				attack(opponent);
 				break;
 			case 2:
-				crushingBlow(opponent);
+				skillStrategy.useSkill(this, opponent);
 				break;
 			default:
 				System.out.println("invalid choice!");

@@ -104,7 +104,7 @@ public abstract class DungeonCharacter implements Comparable {
 			this.hitPoints -= hitPoints;
 			if (this.hitPoints < 0)
 				this.hitPoints = 0;
-			System.out.println(getName() + " hit " + " for <" + hitPoints + "> points damage.");
+			System.out.println(getName() + " got hit " + " for <" + hitPoints + "> points damage.");
 			System.out.println(getName() + " now has " + getHitPoints() + " hit points remaining.");
 			System.out.println();
 		} // end else if

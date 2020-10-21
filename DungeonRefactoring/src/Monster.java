@@ -29,7 +29,7 @@ public abstract class Monster extends DungeonCharacter {
 
 		if (canHeal) {
 			healPoints = (int) (Math.random() * (maxHeal - minHeal + 1)) + minHeal;
-			addHitPoints(healPoints);
+			this.addHitPoints(healPoints);
 			System.out.println(name + " healed itself for " + healPoints + " points.\n"
 					+ "Total hit points remaining are: " + hitPoints);
 			System.out.println();
@@ -38,6 +38,7 @@ public abstract class Monster extends DungeonCharacter {
 	}// end heal method
 
 //-----------------------------------------------------------------
+	@Override
 	public void subtractHitPoints(int hitPoints) {
 		super.subtractHitPoints(hitPoints);
 		heal();

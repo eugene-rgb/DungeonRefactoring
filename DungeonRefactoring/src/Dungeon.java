@@ -54,17 +54,17 @@ public class Dungeon {
 
 		switch (choice) {
 		case 1:
-			return new Warrior();
+			return new Warrior(new CrushingBlowSkillStrategy());
 
 		case 2:
-			return new Sorceress();
+			return new Sorceress(new IncreaseHitPointsSkillStrategy());
 
 		case 3:
-			return new Thief();
+			return new Thief(new SurpriseAttackSkillStrategy());
 
 		default:
 			System.out.println("invalid choice, returning Thief");
-			return new Thief();
+			return new Thief(new SurpriseAttackSkillStrategy());
 		}// end switch
 	}// end chooseHero method
 

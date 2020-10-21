@@ -27,13 +27,15 @@
 public abstract class Hero extends DungeonCharacter {
 	protected double chanceToBlock;
 	protected int numTurns;
+	public SkillStrategy skillStrategy;
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
 	public Hero(String name, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax,
-			double chanceToBlock) {
+			double chanceToBlock, SkillStrategy skillStrat) {
 		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 		this.chanceToBlock = chanceToBlock;
+		this.skillStrategy = skillStrat;
 		readName();
 	}
 

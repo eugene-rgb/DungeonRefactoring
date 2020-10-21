@@ -9,25 +9,23 @@
 public class Sorceress extends Hero {
 	private final int MIN_ADD = 25;
 	private final int MAX_ADD = 50;
+	
+	public int getMIN_ADD() {
+		return MIN_ADD;
+	}
+
+	public int getMAX_ADD() {
+		return MAX_ADD;
+	}
+
 
 //-----------------------------------------------------------------
-	public Sorceress() {
-		super("Sorceress", 75, 5, .7, 25, 50, .3);
+	public Sorceress(final SkillStrategy skillStrat) {
+		super("Sorceress", 75, 5, .7, 25, 50, .3, skillStrat);
 
 	}// end constructor
 
-//-----------------------------------------------------------------
-	public void increaseHitPoints() {
-		int hPoints;
-
-		hPoints = (int) (Math.random() * (MAX_ADD - MIN_ADD + 1)) + MIN_ADD;
-		this.addHitPoints(hPoints);
-		System.out.println(
-				this.name + " added [" + hPoints + "] points.\n" + "Total hit points remaining are: " + this.hitPoints);
-		System.out.println();
-
-	}// end increaseHitPoints method
-
+	
 //-----------------------------------------------------------------
 	@Override
 	public void attack(DungeonCharacter opponent) {
@@ -38,12 +36,13 @@ public class Sorceress extends Hero {
 //-----------------------------------------------------------------
 	@Override
 	public void battleChoices(DungeonCharacter opponent) {
-		super.battleChoices(opponent);
 		int choice;
+
+		super.battleChoices(opponent);
 
 		do {
 			System.out.println("1. Attack Opponent");
-			System.out.println("2. Increase Hit Points");
+			System.out.println("2. " + this.skillStrategy.getSkillName());
 			System.out.print("Choose an option: ");
 			choice = Keyboard.readInt();
 
@@ -52,7 +51,7 @@ public class Sorceress extends Hero {
 				attack(opponent);
 				break;
 			case 2:
-				increaseHitPoints();
+				skillStrategy.useSkill(this, opponent);
 				break;
 			default:
 				System.out.println("invalid choice!");
