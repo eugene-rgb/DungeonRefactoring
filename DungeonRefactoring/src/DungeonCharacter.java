@@ -48,8 +48,7 @@ public abstract class DungeonCharacter{ ////removed the implementation of the Co
 		this.chanceToHit = chanceToHit;
 		this.damageMin = damageMin;
 		this.damageMax = damageMax;
-		HPModifierFactory factory = new HPModifierFactory();
-		hpModifier = factory.getHPModifier(this);
+		hpModifier = HPModifierFactory.getHPModifier(this);
 
 	}// end constructor
 

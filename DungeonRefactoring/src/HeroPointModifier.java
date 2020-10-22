@@ -8,6 +8,7 @@ public class HeroPointModifier extends ModifyHitPoints{
 		super.character = character;
 	}
 	
+	@Override
 	////moved this method from the Hero class (Collin)
 	public void subtractHitPoints(int hitPoints) {
 		if (defend()) {

@@ -8,6 +8,7 @@ public class MonsterPointModifier extends ModifyHitPoints{
 		super.character = character;
 	}
 	
+	@Override
 	////moved this method from Monster class (Collin)
 	public void subtractHitPoints(int hitPoints) {
 		super.subtractHitPoints(hitPoints);

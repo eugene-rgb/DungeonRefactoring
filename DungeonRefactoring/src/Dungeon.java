@@ -132,6 +132,7 @@ public class Dungeon {
 
 		} // end battle loop
 
+		//TO-DO refactor the code below to display before end game choice
 		if (!theMonster.isAlive())
 			System.out.println(theHero.getName() + " was victorious!");
 		else if (!theHero.isAlive())
