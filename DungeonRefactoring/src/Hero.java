@@ -52,6 +52,11 @@ public abstract class Hero extends DungeonCharacter {
 		System.out.print("Enter character name: ");
 		this.name = Keyboard.readString();
 	}// end readName method
+	
+	////added this method to allow for functionality of the HerpPointModifier class (Collin)
+	public double getChanceToBlock() {
+		return chanceToBlock;
+	}
 
 	/*-------------------------------------------------------
 	defend determines if hero blocks attack
@@ -62,10 +67,8 @@ public abstract class Hero extends DungeonCharacter {
 	This method calls: Math.random()
 	This method is called by: subtractHitPoints()
 	---------------------------------------------------------*/
-	public boolean defend() {
-		return Math.random() <= chanceToBlock;
-
-	}// end defend method
+	
+	////moved the defend method to the HeroPointModifier class as only hit point methods use it (Collin)
 
 	/*-------------------------------------------------------
 	subtractHitPoints checks to see if hero blocked attack, if so a message
@@ -79,14 +82,8 @@ public abstract class Hero extends DungeonCharacter {
 	This method calls: defend() or base version of method
 	This method is called by: attack() from base class
 	---------------------------------------------------------*/
-	public void subtractHitPoints(int hitPoints) {
-		if (defend()) {
-			System.out.println(name + " BLOCKED the attack!");
-		} else {
-			super.subtractHitPoints(hitPoints);
-		}
-
-	}// end method
+	
+	////moved the Hero class subtractHitPoints method to the HeroPointModifier class (Collin)
 
 
 	// This method calculates the number of turns the Hero has in an attack

@@ -19,30 +19,35 @@ public abstract class Monster extends DungeonCharacter {
 		this.minHeal = minHeal;
 
 	}// end monster construcotr
+	
+	//added this method to allow functionality of MonsterPointModifier class (Collin)
+	public double getChanceToHeal() {
+		return chanceToHeal;
+	}
 
 //-----------------------------------------------------------------
-	public void heal() {
-		boolean canHeal;
-		int healPoints;
-
-		canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
-
-		if (canHeal) {
-			healPoints = (int) (Math.random() * (maxHeal - minHeal + 1)) + minHeal;
-			this.addHitPoints(healPoints);
-			System.out.println(name + " healed itself for " + healPoints + " points.\n"
-					+ "Total hit points remaining are: " + hitPoints);
-			System.out.println();
-		} // end can heal
-
-	}// end heal method
+//	public void heal() {
+//		boolean canHeal;
+//		int healPoints;
+//
+//		canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
+//
+//		if (canHeal) {
+//			healPoints = (int) (Math.random() * (maxHeal - minHeal + 1)) + minHeal;
+//			hpModifier.addHitPoints(healPoints);
+//			System.out.println(name + " healed itself for " + healPoints + " points.\n"
+//					+ "Total hit points remaining are: " + hitPoints);
+//			System.out.println();
+//		} // end can heal
+//
+//	}// end heal method
 
 //-----------------------------------------------------------------
-	@Override
-	public void subtractHitPoints(int hitPoints) {
-		super.subtractHitPoints(hitPoints);
-		heal();
-
-	}// end method
+//	@Override
+//	public void subtractHitPoints(int hitPoints) {
+//		hpModifier.subtractHitPoints(hitPoints);
+//		heal();
+//
+//	}// end method
 
 }// end Monster class
