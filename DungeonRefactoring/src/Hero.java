@@ -96,8 +96,7 @@ public abstract class Hero extends DungeonCharacter {
 		System.out.println("Number of turns this round is: " + this.numTurns);
 	}
 	/*-------------------------------------------------------
-	battleChoices will be overridden in derived classes.  It computes the
-	number of turns a hero will get per round based on the opponent that is
+	It computes the number of turns a hero will get per round based on the opponent that is
 	being fought.  The number of turns is reported to the user.  This stuff might
 	go better in another method that is invoked from this one...
 	
