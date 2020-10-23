@@ -32,6 +32,7 @@ public class Dungeon {
 		Monster theMonster;
 
 		do {
+			//to do pull from factory
 			theHero = chooseHero();
 			theMonster = generateMonster();
 			battle(theHero, theMonster);
