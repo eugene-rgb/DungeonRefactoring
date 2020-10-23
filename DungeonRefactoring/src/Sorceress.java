@@ -27,6 +27,7 @@ public class Sorceress extends Hero {
 
 	
 //-----------------------------------------------------------------
+	//Attack is getting overridden here to provide a custom message about the attack "casts a spell"
 	@Override
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(name + " casts a spell of fireball at " + opponent.getName() + ":");

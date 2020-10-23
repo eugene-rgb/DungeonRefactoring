@@ -14,6 +14,7 @@ public class Warrior extends Hero {
 	}// end constructor
 	
 
+	// This is getting overridden only for the custom message "swings a mighty sword"
 	@Override
 	public void attack(DungeonCharacter opponent) {
 		System.out.println(this.name + " swings a mighty sword at " + opponent.getName() + ":");
