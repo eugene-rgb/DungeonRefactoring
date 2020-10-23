@@ -27,7 +27,7 @@
 public abstract class Hero extends DungeonCharacter {
 	protected double chanceToBlock;
 	protected int numTurns;
-	public SkillStrategy skillStrategy;
+	private SkillStrategy skillStrategy;
 
 //-----------------------------------------------------------------
 //calls base constructor and gets name of hero from user
@@ -88,6 +88,10 @@ public abstract class Hero extends DungeonCharacter {
 
 	// This method calculates the number of turns the Hero has in an attack
 	public void calculateTurns(final DungeonCharacter opponent) {
+		if (opponent == null) {
+			throw new IllegalArgumentException("Opponent NULL @ Hero's calculateTurns() method");
+		}
+		
 		this.numTurns = this.attackSpeed / opponent.getAttackSpeed();
 		
 		if (this.numTurns == 0)
