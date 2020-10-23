@@ -7,15 +7,15 @@
  */
 
 public class Sorceress extends Hero {
-	private final int MIN_ADD = 25;
-	private final int MAX_ADD = 50;
+	private final int MIN_HEAL = 25;
+	private final int MAX_HEAL = 50;
 	
-	public int getMIN_ADD() {
-		return MIN_ADD;
+	public int getMIN_HEAL() {
+		return MIN_HEAL;
 	}
 
-	public int getMAX_ADD() {
-		return MAX_ADD;
+	public int getMAX_HEAL() {
+		return MAX_HEAL;
 	}
 
 

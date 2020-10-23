@@ -10,8 +10,8 @@ public class IncreaseHitPointsSkillStrategy implements SkillStrategy {
 
 			int hPoints;
 
-			hPoints = (int) (Math.random() * (sorceress.getMAX_ADD() - sorceress.getMIN_ADD() + 1))
-					+ sorceress.getMIN_ADD();
+			hPoints = (int) (Math.random() * (sorceress.getMAX_HEAL() - sorceress.getMIN_HEAL() + 1))
+					+ sorceress.getMIN_HEAL();
 			
 			hero.hpModifier.addHitPoints(hPoints);
 			System.out.println(hero.getName() + " added [" + hPoints + "] points.\n"

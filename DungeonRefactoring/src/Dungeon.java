@@ -128,8 +128,10 @@ public class Dungeon {
 				theMonster.attack(theHero);
 
 			// let the player bail out if desired
-			System.out.print("\n-->q to quit, anything else to continue: ");
-			pause = Keyboard.readChar();
+			if (theHero.isAlive() && theMonster.isAlive()) {
+				System.out.print("\n-->q to quit, anything else to continue: ");
+				pause = Keyboard.readChar();
+			}
 
 		} // end battle loop
 

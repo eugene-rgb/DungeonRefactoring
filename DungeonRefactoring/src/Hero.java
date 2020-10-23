@@ -107,12 +107,20 @@ public abstract class Hero extends DungeonCharacter {
 	This method is called by: external sources
 	---------------------------------------------------------*/
 	public void battleChoices(DungeonCharacter opponent) {
+		if (opponent == null) {
+			throw new IllegalArgumentException("Opponent NULL @ Hero battleChoice() method");
+		}
+		
 		int choice;
 		calculateTurns(opponent);
 
 		do {
 			System.out.println("1. Attack Opponent");
-			System.out.println("2. " + this.skillStrategy.getSkillName());
+			
+			if (this.skillStrategy != null) {
+				System.out.println("2. " + this.skillStrategy.getSkillName());
+			}
+			
 			System.out.print("Choose an option: ");
 			choice = Keyboard.readInt();
 
@@ -122,14 +130,20 @@ public abstract class Hero extends DungeonCharacter {
 				numTurns--;
 				break;
 			case 2:
-				this.skillStrategy.useSkill(this, opponent);
+				
+				try {
+					this.skillStrategy.useSkill(this, opponent);
+				} catch (NullPointerException e) {
+					System.out.println("Hero didn't have recieve a special skill, defaulting to a regular attack.");
+					this.attack(opponent);
+				}
 				numTurns--;
 				break;
 			default:
 				System.out.println("invalid choice!");
 			}// end switch
 
-			if (numTurns > 0)
+			if (numTurns > 0 && this.isAlive() && opponent.isAlive())
 				System.out.println("Number of turns remaining is: " + numTurns);
 
 		} while (numTurns > 0 && opponent.isAlive() && this.isAlive());
