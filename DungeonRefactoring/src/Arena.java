@@ -7,6 +7,7 @@ public class Arena {
 	goes first, then the Monster.  At the conclusion of each round, the
 	user has the option of quitting.
 	---------------------------------------------------------------------*/
+	// Moved from main into this Class. (Michael)
 	public static void battle(Hero theHero, Monster theMonster) {
 		
 		char pause = 'p';
@@ -45,6 +46,7 @@ public class Arena {
 	returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 	this task
 	---------------------------------------------------------------------*/
+	// Moved from main into this Class. (Michael)	
 	public static Hero chooseHero() {
 		int choice;
 		
@@ -76,7 +78,7 @@ public class Arena {
 	generateMonster randomly selects a Monster and returns it.  It utilizes
 	a polymorphic reference (Monster) to accomplish this task.
 	---------------------------------------------------------------------*/
-	
+	// Moved from main into this Class. (Michael)	
 	public static Monster generateMonster() {
 		int choice;
 
