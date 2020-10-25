@@ -7,8 +7,8 @@ public class Arena {
 	goes first, then the Monster.  At the conclusion of each round, the
 	user has the option of quitting.
 	---------------------------------------------------------------------*/
-	// Moved from main into this Class. (Michael)
-	public static void battle(Hero theHero, Monster theMonster) {
+	// Moved from main into this Class. (Michael)//The Methods arguments needed to be changed due to the factory pattern(Dustin)
+	public static void battle(DungeonCharacter theHero, DungeonCharacter theMonster) {
 		
 		char pause = 'p';
 		System.out.println(theHero.getName() + " battles " + theMonster.getName());
@@ -16,8 +16,8 @@ public class Arena {
 
 		// do battle
 		while (theHero.isAlive() && theMonster.isAlive() && pause != 'q') {
-			// hero goes first
-			theHero.battleChoices(theMonster);
+			// hero goes first//I hade to type cast the theHero DungeonCharacter>>Hero(Dustin)
+			((Hero) theHero).battleChoices(theMonster);
 
 			// monster's turn (provided it's still alive!)
 			if (theMonster.isAlive())
@@ -27,6 +27,8 @@ public class Arena {
 			if (theHero.isAlive() && theMonster.isAlive()) {
 				System.out.print("\n-->q to quit, anything else to continue: ");
 				pause = Keyboard.readChar();
+				//Added a sysout to clear the keyboard buffer in case the user input a option for the hero's attack(Dustin)
+				System.out.println();
 			} // end of if statement 
 
 		} // end battle loop
@@ -41,11 +43,14 @@ public class Arena {
 
 	}// end battle method
 	
-	/*-------------------------------------------------------------------
+	
+	/* Both these methods are removed and are being replaced with the factory pattern to create the dungeon character at runtime-Dustin
+	*
+	*-------------------------------------------------------------------
 	chooseHero allows the user to select a hero, creates that hero, and
 	returns it.  It utilizes a polymorphic reference (Hero) to accomplish
 	this task
-	---------------------------------------------------------------------*/
+	---------------------------------------------------------------------
 	// Moved from main into this Class. (Michael)	
 	public static Hero chooseHero() {
 		int choice;
@@ -77,7 +82,7 @@ public class Arena {
 	/*-------------------------------------------------------------------
 	generateMonster randomly selects a Monster and returns it.  It utilizes
 	a polymorphic reference (Monster) to accomplish this task.
-	---------------------------------------------------------------------*/
+	---------------------------------------------------------------------
 	// Moved from main into this Class. (Michael)	
 	public static Monster generateMonster() {
 		int choice;
@@ -101,5 +106,7 @@ public class Arena {
 		}// end switch
 		
 	}// end generateMonster method
+	*/
+	
 	
 } // end of class 

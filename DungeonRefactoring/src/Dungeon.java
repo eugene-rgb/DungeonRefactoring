@@ -28,15 +28,16 @@
 public class Dungeon {
 	public static void main(String[] args) {
 
-		Hero theHero;
-		Monster theMonster;
-
+		DungeonCharacter theHero;
+		DungeonCharacter theMonster;
+		
 		do {
 			//to do pull from factory
-			theHero = Arena.chooseHero();
-			theMonster = Arena.generateMonster();
+			//theHero = Arena.chooseHero();
+			theHero = CharFactProducer.newCharacter("hero");
+			//theMonster = Arena.generateMonster();
+			theMonster = CharFactProducer.newCharacter("monster");
 			Arena.battle(theHero, theMonster);
-
 		} while (playAgain());
 
 	}// end main method

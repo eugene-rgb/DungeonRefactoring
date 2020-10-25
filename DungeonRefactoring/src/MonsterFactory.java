@@ -4,6 +4,7 @@ public class MonsterFactory extends CharacterFactory {
 	
 	protected DungeonCharacter generateCharacter(int choice) {
 		DungeonCharacter monster;
+		//returns monster based on choice passed into it(Dustin)
 		switch (choice) {		
 		case 1:
 			monster = new Ogre();
