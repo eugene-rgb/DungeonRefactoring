@@ -35,8 +35,13 @@ public abstract class Hero extends DungeonCharacter {
 			double chanceToBlock, SkillStrategy skillStrat) {
 		super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
 		this.chanceToBlock = chanceToBlock;
-		this.skillStrategy = skillStrat;
 		readName();
+		
+		if (skillStrat != null) {
+			this.skillStrategy = skillStrat;
+		} else {
+			throw new IllegalArgumentException("SkillStrategy object NULL @ Hero constructor");
+		}
 	}
 
 	/*-------------------------------------------------------
@@ -131,7 +136,7 @@ public abstract class Hero extends DungeonCharacter {
 			switch (choice) {
 			case 1:
 				attack(opponent);
-				numTurns--;
+				this.numTurns--;
 				break;
 			case 2:
 				
@@ -141,16 +146,16 @@ public abstract class Hero extends DungeonCharacter {
 					System.out.println("Hero didn't have recieve a special skill, defaulting to a regular attack.");
 					this.attack(opponent);
 				}
-				numTurns--;
+				this.numTurns--;
 				break;
 			default:
 				System.out.println("invalid choice!");
 			}// end switch
 
-			if (numTurns > 0 && this.isAlive() && opponent.isAlive())
+			if (this.numTurns > 0 && this.isAlive() && opponent.isAlive())
 				System.out.println("Number of turns remaining is: " + numTurns);
 
-		} while (numTurns > 0 && opponent.isAlive() && this.isAlive());
+		} while (this.numTurns > 0 && opponent.isAlive() && this.isAlive());
 
 	}
 

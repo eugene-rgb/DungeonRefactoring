@@ -4,7 +4,7 @@ public abstract class CharFactProducer {
 	public static DungeonCharacter newCharacter(String type) {
 		DungeonCharacter character;	
 		
-		if(type == "hero") {//send it a hero factory		
+		if(type.contains("hero")) {//send it a hero factory		
 			
 			//send choice to hero factory
 			System.out.println("Choose a hero:\n" + "1. Warrior\n" + "2. Sorceress\n" + "3. Thief");

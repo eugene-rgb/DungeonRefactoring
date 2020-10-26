@@ -23,7 +23,7 @@ public class Arena {
 			if (theMonster.isAlive())
 				theMonster.attack(theHero);
 
-			// let the player bail out if desired
+			// let the player bail out if desired. Feature: doesn't ask to bail when there is an outcome death
 			if (theHero.isAlive() && theMonster.isAlive()) {
 				System.out.print("\n-->q to quit, anything else to continue: ");
 				pause = Keyboard.readChar();
