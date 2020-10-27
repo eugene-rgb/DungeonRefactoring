@@ -48,7 +48,7 @@ public abstract class DungeonCharacter{ ////removed the implementation of the Co
 		this.chanceToHit = chanceToHit;
 		this.damageMin = damageMin;
 		this.damageMax = damageMax;
-		hpModifier = HPModifierFactory.getHPModifier(this);
+		hpModifier = HPModifierFactory.getHPModifier(this); //added this object that will be used to manipulate points for the character (Collin)
 
 	}// end constructor
 

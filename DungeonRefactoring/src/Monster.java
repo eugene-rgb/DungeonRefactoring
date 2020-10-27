@@ -18,7 +18,7 @@ public abstract class Monster extends DungeonCharacter {
 		this.maxHeal = maxHeal;
 		this.minHeal = minHeal;
 
-	}// end monster construcotr
+	}// end monster constructor
 	
 	//added this method to allow functionality of MonsterPointModifier class (Collin)
 	public double getChanceToHeal() {
@@ -26,28 +26,11 @@ public abstract class Monster extends DungeonCharacter {
 	}
 
 //-----------------------------------------------------------------
-//	public void heal() {
-//		boolean canHeal;
-//		int healPoints;
-//
-//		canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
-//
-//		if (canHeal) {
-//			healPoints = (int) (Math.random() * (maxHeal - minHeal + 1)) + minHeal;
-//			hpModifier.addHitPoints(healPoints);
-//			System.out.println(name + " healed itself for " + healPoints + " points.\n"
-//					+ "Total hit points remaining are: " + hitPoints);
-//			System.out.println();
-//		} // end can heal
-//
-//	}// end heal method
+
+	//the heal method was moved to the MonsterPointModifier class as it is the only class that will be using the method (Collin)
 
 //-----------------------------------------------------------------
-//	@Override
-//	public void subtractHitPoints(int hitPoints) {
-//		hpModifier.subtractHitPoints(hitPoints);
-//		heal();
-//
-//	}// end method
+
+	//the subtractHitPoints method was also moved to the MonsterPointModifier class to encapsulate all hit point manipulation there (Collin)
 
 }// end Monster class

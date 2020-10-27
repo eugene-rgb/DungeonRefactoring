@@ -1,6 +1,7 @@
 
 public class MonsterPointModifier extends ModifyHitPoints{
 
+	//the private instance of Monster will allow the hit point methods to access and manipulate character values (Collin)
 	private final Monster character;
 	
 	public MonsterPointModifier(Monster character) {
