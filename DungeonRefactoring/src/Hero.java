@@ -32,7 +32,7 @@ public abstract class Hero extends DungeonCharacter {
 		this.name = Keyboard.readString();
 	}// end readName method
 	
-	////added this method to allow for functionality of the HerpPointModifier class (Collin)
+	////added this method to allow for functionality of the HeroPointModifier class (Collin)
 	public double getChanceToBlock() {
 		return chanceToBlock;
 	}
