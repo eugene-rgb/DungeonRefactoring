@@ -1,8 +1,18 @@
 
 public class CrushingBlowSkillStrategy implements SkillStrategy {
 
+	/*
+	 * The implementation below (useSkill) is pulled straight from the Warrior class
+	 * and put into this concrete "algorithm" that allows for easier maintainability
+	 * and flexibility. 
+	 * 
+	 * The strategyName class-level variable is used when attack
+	 * options are displayed from battleChoices() (inside the Hero class).
+	 * 
+	 */
+
 	private final static String strategyName = "Crushing Blow on Opponent";
-	
+
 	@Override
 	public void useSkill(final Hero hero, final DungeonCharacter opponent) {
 		if (Math.random() <= .4) {
@@ -16,7 +26,7 @@ public class CrushingBlowSkillStrategy implements SkillStrategy {
 		} // blow failed
 
 	}
-	
+
 	@Override
 	public String getSkillName() {
 		return this.strategyName;
